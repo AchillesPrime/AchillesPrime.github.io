@@ -154,34 +154,45 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 <main class="content">
 
     
-    <div class="container notice">
-        <div class="card">
-            <div class="card-content">
-                <i class="fa fa-volume-up fa-lg fa-fw text-color"></i>Let only that little be left of me whereby I may name thee my all.
+<div id="tags" class="container tag-tip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">文章标签</div>
+            <div class="tag-chips">
+                
+                
+                <a href="https://achillesprime.github.io/tags/For-Free/" title="For Free: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="For Free" style="background-color: #F9EBEA;">For Free
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
-    
+</div>
 
-    
+    <div class="container">
+        
 
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2018/09/29/hello-world/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Hello World">
-                            
-                            <span class="card-title">Hello World</span>
-                        </div>
-
+        <article>
+            <div class="row tags-posts">
+                
+                
+                <div class="article tag-post col s12 m6 l4" data-tags="For Free">
+                    <div class="card">
+                        <a href="/2018/09/29/hello-world/">
+                            <div class="card-image tag-image">
+                                
+                                
+                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Hello World">
+                                
+                                <span class="card-title">Hello World</span>
+                            </div>
+                        </a>
                         <div class="card-content article-content">
-                            <div class="summary">Welcome to Hexo! This is your very first post. Check documen</div>
                             <div class="publish-info">
                                 <span class="publish-date">
                                     <i class="fa fa-calendar fa-fw"></i>2018-09-29
@@ -194,25 +205,13 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
                                 </span>
                             </div>
                         </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="https://achillesprime.github.io/tags/For-Free/" target="_blank">
-                                <span class="chip bg-color">For Free</span>
-                            </a>
-                            
-                        </div>
-                        
-                    </a>
+                    </div>
                 </div>
+                
             </div>
-            
-        </div>
-    </article>
-
+        </article>
+    </div>
 </main>
-
 
 
 <footer class="page-footer bg-color">
