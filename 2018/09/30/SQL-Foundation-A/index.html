@@ -874,7 +874,376 @@
 </ul>
 </li>
 </ul>
-<h2 id="单表查询"><a href="#单表查询" class="headerlink" title="单表查询"></a>单表查询</h2>
+<h2 id="简单查询"><a href="#简单查询" class="headerlink" title="简单查询"></a>简单查询</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token punctuation">,</span> hire_date <span class="token keyword">from</span> teachers<span class="token punctuation">;</span>
+<span class="token keyword">select</span> name <span class="token punctuation">,</span> to_char<span class="token punctuation">(</span>hire_date<span class="token punctuation">,</span><span class="token string">'yyyy-mm-dd'</span><span class="token punctuation">)</span> <span class="token keyword">from</span> teachers<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>查询指定列，多列需用英文逗号隔开</li>
+<li>日期数据的默认格式可以用“to_char”转换成其他显示格式</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> specialty <span class="token keyword">from</span> students<span class="token punctuation">;</span>
+<span class="token keyword">select</span> <span class="token keyword">distinct</span> specialty <span class="token keyword">from</span> students<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li><code>distinct</code><ul>
+<li>（明显的、有区别的）</li>
+<li>消除完全重复的记录行（当选择主键以外的列执行查询操作时）</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token keyword">as</span> <span class="token string">"姓名"</span> <span class="token punctuation">,</span> dob <span class="token keyword">as</span> <span class="token string">"生日"</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>列别名<ul>
+<li><code>as + &quot;......&quot;</code></li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token operator">||</span> <span class="token string">'生日是：'</span> <span class="token operator">||</span> dob <span class="token keyword">as</span> <span class="token string">"学生生日清单"</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li><code>||</code><ul>
+<li>字符串连接</li>
+<li>连接的字符串要使用英文单引号 <code>&#39;&#39;</code></li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token keyword">as</span> <span class="token string">"姓名"</span> <span class="token punctuation">,</span> bonus<span class="token operator">+</span>wage <span class="token keyword">as</span> <span class="token string">"月总收入"</span> <span class="token keyword">from</span> teachers<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>算术表达式<ul>
+<li>使用括号可以改变运算次序</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token keyword">as</span> <span class="token string">"姓名"</span> <span class="token punctuation">,</span> nvl<span class="token punctuation">(</span>bonus <span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">+</span>wage <span class="token keyword">as</span> <span class="token string">"月总收入"</span> <span class="token keyword">from</span> teachers<span class="token punctuation">;</span>
+<span class="token keyword">select</span> name <span class="token keyword">as</span> <span class="token string">"姓名"</span> <span class="token punctuation">,</span> nvl2<span class="token punctuation">(</span>bonus <span class="token punctuation">,</span> bonus<span class="token operator">+</span>wage <span class="token punctuation">,</span> wage<span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">"月总收入"</span> 
+       <span class="token keyword">from</span> teachers<span class="token punctuation">;</span>
+<span class="token keyword">select</span> name <span class="token keyword">as</span> <span class="token string">"姓名"</span> <span class="token punctuation">,</span> <span class="token keyword">coalesce</span><span class="token punctuation">(</span>bonus<span class="token operator">+</span>wage <span class="token punctuation">,</span> wage<span class="token punctuation">)</span> <span class="token keyword">as</span> <span class="token string">"月总收入"</span> 
+       <span class="token keyword">from</span> teachers<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>任何数据类型的列<ul>
+<li>只要没有使用非空 not null 或主键 primary key 完整性约束</li>
+<li>就都有可能出现空值 null</li>
+<li>空值 null 没有数据类型</li>
+<li>空值 null 出现在字符串连接表达式中，Oracle 将其作为空串处理</li>
+<li>空值 null 出现在算术表达式中，运算结果为 null</li>
+<li>为了解决空值 null 参加运算时出现的问题，Oracle 提供了3个函数对此进行处理</li>
+<li>nvl（A , B）<br>​   - A 、B 的数据类型必须匹配<br>​   - A 为 null ，返回 B<br>​   - A 不为 null ，返回 A</li>
+<li>nvl2（A ，B ，C）<br>​   - A 、B 、C 的数据类型必须匹配<br>​   - A 为 null ,返回 C<br>​   - A 不为 null ，返回 B</li>
+<li>coalesce（A、B、C、D…）<br>​   - 联合，合并<br>​   - 返回参数列表中的第一个非空值<br>​   - 若参数列表皆为空值，最终返回一个空值 null</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token punctuation">,</span> hire_date <span class="token punctuation">,</span> title <span class="token punctuation">,</span> wage <span class="token keyword">from</span> teachers 
+       <span class="token keyword">where</span> 
+       wage <span class="token operator">>=</span> <span class="token number">2000</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> specialty <span class="token punctuation">,</span> dob <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       specialty <span class="token operator">=</span> <span class="token string">'计算机'</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> specialty <span class="token punctuation">,</span> dob <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       dob <span class="token operator">&lt;</span> <span class="token string">'1-1月-1990'</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>算术运算比较符<code>= 、&lt; 、&lt;= 、&gt; 、&gt;= 、 &lt;&gt;(!=)</code></li>
+</ul>
+<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token punctuation">,</span> hire_date <span class="token punctuation">,</span> title <span class="token punctuation">,</span> bonus <span class="token keyword">from</span> teachers
+       <span class="token keyword">where</span> 
+       bonus <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">500</span> <span class="token punctuation">,</span> <span class="token number">600</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> specialty <span class="token punctuation">,</span> dob <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       dob <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token string">'26-12月-1989'</span> <span class="token punctuation">,</span> <span class="token string">'08-10月-1990'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>包含测试 <code>in</code></li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token punctuation">,</span> hire_date <span class="token punctuation">,</span> title <span class="token punctuation">,</span> bonus <span class="token keyword">from</span> teachers
+       <span class="token keyword">where</span> 
+       bonus <span class="token operator">between</span> <span class="token number">500</span> <span class="token operator">and</span> <span class="token number">1500</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>范围测试 <code>between-and</code></li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> specialty <span class="token punctuation">,</span>dob <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       name <span class="token operator">like</span> <span class="token string">'王%'</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> specialty <span class="token punctuation">,</span>dob <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       name <span class="token operator">like</span> <span class="token string">'王_'</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>匹配测试 <code>like</code><ul>
+<li>通配符 <code>%（百分号）</code>表示0或多个字符</li>
+<li>通配符 <code>_（下划线）</code>表示单个字符</li>
+<li>通配符只用于 like 条件</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token punctuation">,</span> hire_date <span class="token punctuation">,</span> title <span class="token punctuation">,</span>bonus <span class="token keyword">from</span> teachers
+       <span class="token keyword">where</span> 
+       bonus <span class="token operator">is</span> <span class="token boolean">null</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> name <span class="token punctuation">,</span> hire_date <span class="token punctuation">,</span> title <span class="token punctuation">,</span>bonus <span class="token keyword">from</span> teachers
+       <span class="token keyword">where</span> 
+       title <span class="token operator">is</span> <span class="token boolean">null</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> specialty <span class="token punctuation">,</span>dob <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       dob <span class="token operator">is</span> <span class="token boolean">null</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>空值测试 <code>is null</code><ul>
+<li>不可写成 = null</li>
+<li>因为 null 是一个未知或未确定的数据</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> sex <span class="token punctuation">,</span> specialty <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       specialty <span class="token operator">=</span> <span class="token string">'计算机'</span> <span class="token operator">and</span> sex <span class="token operator">=</span> <span class="token string">'男'</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> sex <span class="token punctuation">,</span> specialty <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       specialty <span class="token operator">=</span> <span class="token string">'计算机'</span> <span class="token operator">or</span> specialty <span class="token operator">=</span> <span class="token string">'自动化'</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> sex <span class="token punctuation">,</span> specialty <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       <span class="token operator">not</span> specialty <span class="token operator">=</span> <span class="token string">'计算机'</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span>specialty <span class="token punctuation">,</span> dob <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       dob <span class="token operator">not</span> <span class="token operator">between</span> <span class="token string">'1-1月-1989'</span> <span class="token operator">and</span> <span class="token string">'1-1月-1990'</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span>specialty <span class="token punctuation">,</span> dob <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       name <span class="token operator">not</span> <span class="token operator">like</span> <span class="token string">'张%'</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span>specialty <span class="token punctuation">,</span> dob <span class="token keyword">from</span> students
+       <span class="token keyword">where</span> 
+       name <span class="token operator">not</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token string">'欧阳春岚'</span> <span class="token punctuation">,</span> <span class="token string">'高山'</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> name <span class="token punctuation">,</span> hire_date <span class="token punctuation">,</span> title <span class="token punctuation">,</span>bonus <span class="token keyword">from</span> teachers
+       <span class="token keyword">where</span> 
+       bonus <span class="token operator">is</span> <span class="token operator">not</span> <span class="token boolean">null</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>where 子句的复合条件查询涉及逻辑运算符<ul>
+<li>and 、or 为双操作数逻辑运算符</li>
+<li>not 为单操作数逻辑运算符</li>
+<li>not 主要与 = 、between-and 、like 、in 以及 is null 结合使用</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> sex <span class="token punctuation">,</span> specialty <span class="token keyword">from</span> students
+       <span class="token keyword">where</span>
+       specialty <span class="token operator">=</span> <span class="token string">'计算机'</span> <span class="token operator">and</span> sex <span class="token operator">=</span> <span class="token string">'女'</span>
+       <span class="token operator">or</span>
+       specialty <span class="token operator">=</span> <span class="token string">'机电工程'</span> <span class="token operator">and</span> sex <span class="token operator">=</span> <span class="token string">'男'</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> name <span class="token punctuation">,</span> hire_date <span class="token punctuation">,</span> title <span class="token punctuation">,</span> bonus <span class="token punctuation">,</span> wage <span class="token keyword">from</span> teachers
+       <span class="token keyword">where</span>
+       <span class="token operator">not</span> title <span class="token operator">=</span> <span class="token string">'工程师'</span>
+       <span class="token operator">and</span>
+       hire_date <span class="token operator">&lt;</span> <span class="token string">'1-1月-2002'</span>
+       <span class="token operator">and</span>
+       wage <span class="token operator">&lt;</span> <span class="token number">3000</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>组合使用逻辑条件<ul>
+<li>not &gt;  and &gt;  or </li>
+<li>括号可以改变优先级</li>
+</ul>
+</li>
+</ul>
+<h2 id="记录排序"><a href="#记录排序" class="headerlink" title="记录排序"></a>记录排序</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token punctuation">,</span> hire_date <span class="token punctuation">,</span> title <span class="token punctuation">,</span> bonus <span class="token punctuation">,</span> wage <span class="token keyword">from</span> teachers
+       <span class="token keyword">order</span> <span class="token keyword">by</span> wage <span class="token keyword">asc</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> name <span class="token punctuation">,</span> hire_date <span class="token punctuation">,</span> title <span class="token punctuation">,</span> bonus <span class="token punctuation">,</span> wage <span class="token keyword">from</span> teachers
+       <span class="token keyword">order</span> <span class="token keyword">by</span> wage<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li><code>asc</code><ul>
+<li>指定进行升序排序</li>
+<li>asc 可省略</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> name <span class="token keyword">as</span> <span class="token string">"姓名"</span> <span class="token punctuation">,</span> dob <span class="token keyword">as</span> <span class="token string">"出生日期"</span> <span class="token keyword">from</span> students
+       <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token string">"出生日期"</span> <span class="token keyword">desc</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> specialty <span class="token punctuation">,</span> dob <span class="token keyword">from</span> students
+       <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">2</span> <span class="token keyword">desc</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li><code>desc</code> <ul>
+<li>指定进行降序排序</li>
+<li>desc 不可省略</li>
+<li>所指定的排序列包含 null 值的记录行会排列在最前面</li>
+<li>可以使用列别名进行排序</li>
+<li>如果列名或表达式名称较长，可以使用列位置序号排序</li>
+<li>汉字排序按其拼音对应的英文字母的顺序进行</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> specialty <span class="token punctuation">,</span> dob <span class="token keyword">from</span> students
+       <span class="token keyword">order</span> <span class="token keyword">by</span> specialty <span class="token punctuation">,</span> name <span class="token keyword">asc</span><span class="token punctuation">;</span>
+<span class="token keyword">select</span> student_id <span class="token punctuation">,</span> name <span class="token punctuation">,</span> specialty <span class="token punctuation">,</span> dob <span class="token keyword">from</span> students
+       <span class="token keyword">order</span> <span class="token keyword">by</span> specialty <span class="token punctuation">,</span> name <span class="token keyword">desc</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>多列排序<ul>
+<li>先按指定的第一个列进行排序</li>
+<li>再按指定的第二个列进行排序</li>
+<li>依次类推</li>
+</ul>
+</li>
+</ul>
+<h2 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">avg</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token keyword">from</span> teachers<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>avg()<ul>
+<li>列函数</li>
+<li>用于计算列或表达式的平均值</li>
+<li>只适用于数值型数据</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>count(*)<ul>
+<li>列函数</li>
+<li>用于取得指定表的记录总行数</li>
+<li>除 count(*) 外其他列函数都不考虑 null 行</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">max</span><span class="token punctuation">(</span>dob<span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token function">min</span><span class="token punctuation">(</span>dob<span class="token punctuation">)</span> <span class="token keyword">from</span> students<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>max()<ul>
+<li>列函数</li>
+<li>用于求出列或表达式的最大值</li>
+<li>适用于任何数据类型</li>
+</ul>
+</li>
+<li>min()<ul>
+<li>列函数</li>
+<li>用于求出列或表达式的最小值</li>
+<li>适用于任何数据类型</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token function">sum</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token keyword">from</span> teachers<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>sum()<ul>
+<li>列函数</li>
+<li>用于对列或表达式求总和</li>
+<li>只适用于数值型数据</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> variance<span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token keyword">from</span> teachers<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>variance()<ul>
+<li>列函数</li>
+<li>用于求出列或表达式的方差</li>
+<li>只适用于数值型数据</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> stddev<span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token keyword">from</span> teachers<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>stddev()<ul>
+<li>列函数</li>
+<li>用于求出列或表达式的标准偏差</li>
+<li>只适用于数值型数据</li>
+<li>当只有一行数据时，stddev() 返回0</li>
+<li>当存在多行数据时，stddev() 按照 variance() 值的平方根来计算标准偏差</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> department_id <span class="token keyword">from</span> teachers
+       <span class="token keyword">group</span> <span class="token keyword">by</span> department_id<span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> department_id <span class="token punctuation">,</span> title <span class="token keyword">from</span> teachers
+       <span class="token keyword">group</span> <span class="token keyword">by</span> department_id <span class="token punctuation">,</span> title<span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> department_id <span class="token punctuation">,</span> <span class="token function">max</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token function">min</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token keyword">from</span> teachers
+       <span class="token keyword">group</span> <span class="token keyword">by</span> department_id<span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> department_id <span class="token punctuation">,</span> <span class="token function">sum</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token punctuation">,</span> <span class="token function">avg</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token keyword">from</span> teachers
+       <span class="token keyword">group</span> <span class="token keyword">by</span> department_id<span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> department_id <span class="token punctuation">,</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token operator">*</span><span class="token punctuation">)</span> <span class="token keyword">from</span> teachers
+       <span class="token keyword">group</span> <span class="token keyword">by</span> department_id<span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> department_id <span class="token punctuation">,</span> <span class="token function">avg</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token keyword">from</span> teachers
+       <span class="token keyword">where</span> 
+       wage <span class="token operator">></span> <span class="token number">1000</span>
+       <span class="token keyword">group</span> <span class="token keyword">by</span> department_id<span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li><code>group by</code><ul>
+<li>用于分组，组中的行并不互相重复</li>
+<li>可以单独使用</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> department_id <span class="token punctuation">,</span> <span class="token function">avg</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token keyword">from</span> teachers
+       <span class="token keyword">group</span> <span class="token keyword">by</span> department_id
+       <span class="token keyword">having</span> <span class="token function">avg</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">2200</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> department_id <span class="token punctuation">,</span> <span class="token function">avg</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token keyword">from</span> teachers
+       <span class="token keyword">where</span> 
+       wage <span class="token operator">&lt;</span> <span class="token number">3000</span>
+       <span class="token keyword">group</span> <span class="token keyword">by</span> department_id
+       <span class="token keyword">having</span> <span class="token function">avg</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2000</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">select</span> department_id <span class="token punctuation">,</span> <span class="token function">avg</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token keyword">from</span> teachers
+       <span class="token keyword">where</span> 
+       wage <span class="token operator">&lt;</span> <span class="token number">3000</span>
+       <span class="token keyword">group</span> <span class="token keyword">by</span> department_id
+       <span class="token keyword">having</span> <span class="token function">avg</span><span class="token punctuation">(</span>wage<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">2000</span>
+       <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">2</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li><p><code>having</code></p>
+<ul>
+<li><p>指定条件，用于限制分组显示结果</p>
+</li>
+<li><p>having 必须与 group by 一起使用</p>
+</li>
+</ul>
+</li>
+</ul>
+
                 </div>
                 <hr/>
 
