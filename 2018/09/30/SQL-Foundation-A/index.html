@@ -228,9 +228,9 @@
 <li>SQL&gt;quit（辞职、中断）</li>
 </ul>
 </li>
-<li>在SQL*Plus 中执行 SQL 语句，语句末尾需要加上分号 “；”</li>
+<li>在SQL*Plus 中执行 SQL 语句，语句末尾需要加上分号 <code>；</code></li>
 <li>在SQL*Plus 中执行 PL/SQL 程序，先需执行 <code>set serveroutput on</code><ul>
-<li>且最后一条语句的下一行需要输入斜杠 “/“</li>
+<li>且最后一条语句的下一行需要输入斜杠 <code>/</code></li>
 </ul>
 </li>
 </ul>
@@ -243,7 +243,7 @@
 <li>char：定长字符串，必须指定长度，1（默认）~255字节</li>
 <li>varchar2：变长字符串，必须指定最大字节数，最大长度为2000字节</li>
 <li>number：存储零、正负定点数或浮点数，最大精度38位<ul>
-<li>定点数据类型number（p,s）</li>
+<li>定点数据类型<code>number（p,s）</code></li>
 <li>p：总的有效数字的位数，精度范围1~38</li>
 <li>s：小数点右边数字位，范围-84~127</li>
 </ul>
@@ -262,8 +262,8 @@
 </li>
 <li>sysdate 为 Oracle 系统当前服务器的时间<ul>
 <li>dual 是一个单行单列的虚拟表<ul>
-<li>dual 表数据类型为 VERCHAR2(1)</li>
-<li>Oracle 的内部逻辑保证 dual 表中永远只有一条数据 “X”</li>
+<li>dual 表数据类型为 varchar2(1)</li>
+<li>Oracle 的内部逻辑保证 dual 表中永远只有一条数据 <code>X</code></li>
 <li>dual 可用来选择系统变量或求一个表达式的值</li>
 </ul>
 </li>
@@ -298,7 +298,7 @@
 </ul>
 <ul>
 <li>如果安装的客户端是中文环境，格式 mon 就不能用英文的月份写法<ul>
-<li>必须用中文的 “数字-数字+月-数字”</li>
+<li>必须用中文的 <code>数字-数字+月-数字</code></li>
 <li>或者使用 <code>to_date(&#39;1998-05-07&#39;,&#39;yyyy-mm-dd&#39;)</code></li>
 </ul>
 </li>
@@ -546,7 +546,7 @@
 </code></pre>
 <ul>
 <li>查看指定表中的所有行所有列的数据<ul>
-<li>“*” 星号表示检索所有的列</li>
+<li><code>*</code> 星号表示检索所有的列</li>
 </ul>
 </li>
 </ul>
