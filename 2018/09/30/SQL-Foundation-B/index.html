@@ -247,18 +247,22 @@
                <span class="token keyword">group</span> <span class="token keyword">by</span> department_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <ul>
-<li><code>any</code><ul>
+<li><p><code>any</code></p>
+<ul>
 <li>只要符合子查询结果的任意一个值</li>
 <li>结果为真，否则为假</li>
-<li><code>= any</code><ul>
+<li><p><code>= any</code></p>
+<ul>
 <li>功能与IN操作符是完全一样的</li>
 </ul>
 </li>
-<li><code>&gt; any</code><ul>
+<li><p><code>&gt; any</code></p>
+<ul>
 <li>比子查询中返回的最小结果还要大</li>
 </ul>
 </li>
-<li><code>&lt; any</code><ul>
+<li><p><code>&lt; any</code></p>
+<ul>
 <li>比子查询中返回的最大结果要小</li>
 </ul>
 </li>
@@ -272,7 +276,7 @@
                <span class="token keyword">group</span> <span class="token keyword">by</span> department_id<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <ul>
-<li>all<ul>
+<li><code>all</code><ul>
 <li>必须符合子查询结果的所有值</li>
 <li>结果为真，否则为假</li>
 <li><code>&gt; all</code><ul>
@@ -464,7 +468,7 @@
        <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">1</span><span class="token punctuation">;</span>
 </code></pre>
 <ul>
-<li>union all<ul>
+<li><code>union all</code><ul>
 <li>获取两个查询结果的并集</li>
 <li>不取消重复行</li>
 <li>不排序</li>
@@ -483,7 +487,7 @@
        sex <span class="token operator">=</span> <span class="token string">'男'</span><span class="token punctuation">;</span>
 </code></pre>
 <ul>
-<li>union<ul>
+<li><code>union</code><ul>
 <li>获取两个查询结果的并集</li>
 <li>自动取消重复行</li>
 <li>以第一列排序</li>
@@ -502,7 +506,7 @@
        sex <span class="token operator">=</span> <span class="token string">'男'</span><span class="token punctuation">;</span>
 </code></pre>
 <ul>
-<li>intersect<ul>
+<li><code>intersect</code><ul>
 <li>获取两个查询结果的交集</li>
 <li>第一个查询结果集中存在</li>
 <li>第二个查询结果集中存在</li>
@@ -522,7 +526,7 @@
        sex <span class="token operator">=</span> <span class="token string">'男'</span><span class="token punctuation">;</span>
 </code></pre>
 <ul>
-<li>minus<ul>
+<li><code>minus</code><ul>
 <li>获取两个集合的差集</li>
 <li>第一个查询结果集中存在</li>
 <li>第二个查询结果集不存在</li>
