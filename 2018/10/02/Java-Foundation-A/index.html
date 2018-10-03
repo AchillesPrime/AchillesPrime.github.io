@@ -149,9 +149,9 @@
                 
                 <div class="article-tag">
                     
-                    <a href="https://achillesprime.github.io/tags/Java/" target="_blank"><span class="chip bg-color">Java</span></a>
-                    
                     <a href="https://achillesprime.github.io/tags/Foundation/" target="_blank"><span class="chip bg-color">Foundation</span></a>
+                    
+                    <a href="https://achillesprime.github.io/tags/Java/" target="_blank"><span class="chip bg-color">Java</span></a>
                     
                 </div>
                 
@@ -511,6 +511,689 @@ C<span class="token operator">:</span>\User\username <span class="token operator
 </ul>
 </li>
 </ul>
+<hr>
+<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li>基本数据类型<ul>
+<li>boolean 布尔型</li>
+<li>数值型<ul>
+<li>整型<ul>
+<li>byte 、short 、int 、long</li>
+</ul>
+</li>
+<li>char 字符型<ul>
+<li>实际上也是一种整数类型，相当于无符号整数类型</li>
+<li>字符串不是基本数据类型，字符串是一个类，也就是一个引用数据类型</li>
+</ul>
+</li>
+<li>浮点型<ul>
+<li>float 、double</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>引用数据类型<ul>
+<li>对一个对象的引用，对象包括实例和数组</li>
+<li>类、接口和数组类型</li>
+<li>特殊的空类型（null type）<ul>
+<li>没有名称，因此不可能声明一个 null 类型的变量或者转换为 null 类型</li>
+<li>null 引用是 null 类型表达式唯一可能的值</li>
+<li>null 引用可以转换为任何引用类型<ul>
+<li>且只能转换为引用类型，不能转化为基本类型</li>
+<li>无法对一个基本类型的变量赋予 null 值</li>
+</ul>
+</li>
+<li>实际开发中，可以忽略 null 类型，假定 null 只是引用类型的一个特殊直接量</li>
+</ul>
+</li>
+<li>实际上，引用类型变量就是一个指针，只不过 Java 语言里不再使用指针的说法</li>
+</ul>
+</li>
+</ul>
+<h3 id="强类型语言"><a href="#强类型语言" class="headerlink" title="强类型语言"></a>强类型语言</h3><ul>
+<li>Java 是一门强类型（strongly typed）语言<ul>
+<li>所有变量必须先声明、后使用</li>
+<li>指定类型的变量只能接受类型与之匹配的值</li>
+</ul>
+</li>
+<li>强类型语言可以在编译过程中发现源代码的错误，保证程序的健壮性</li>
+</ul>
+<h3 id="注释、分隔符、标识符、关键字"><a href="#注释、分隔符、标识符、关键字" class="headerlink" title="注释、分隔符、标识符、关键字"></a>注释、分隔符、标识符、关键字</h3><ul>
+<li>注释<ul>
+<li>单行注释<ul>
+<li><code>// ......</code></li>
+</ul>
+</li>
+<li>多行注释<ul>
+<li><code>/*......*/</code></li>
+</ul>
+</li>
+<li>文档注释<ul>
+<li><code>/**......*/</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分隔符<ul>
+<li><code>;</code><ul>
+<li>语句的分隔</li>
+<li>一行可写多个语句，每个语句之间用分号隔开</li>
+<li>一个语句可跨多行，最后用分号结束</li>
+<li>字符串、变量名不能跨行</li>
+</ul>
+</li>
+<li><code>{}</code><ul>
+<li>定义代码块</li>
+<li>成对出现</li>
+</ul>
+</li>
+<li><code>[]</code><ul>
+<li>访问数组元素</li>
+<li>紧跟数组变量名</li>
+<li>方括号内指定希望访问的数组元素的索引</li>
+</ul>
+</li>
+<li><code>（）</code><ul>
+<li>形参声明</li>
+<li>实参传递</li>
+<li>表达式优先</li>
+<li>强制类型转换的运算符</li>
+</ul>
+</li>
+<li><code></code><ul>
+<li>Java 是一门格式自由的语言</li>
+<li>空格几乎可以出现在 Java 程序的任何地方</li>
+<li>可以出现任意多个空格</li>
+<li>但不要把一个变量名隔开成两个</li>
+<li>Java 的空格包括空格符（Space）、制表符（Tab）和回车（Enter）等</li>
+</ul>
+</li>
+<li><code>.</code><ul>
+<li>调用某个类或某个实例的指定成员</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>标识符<ul>
+<li>给程序中的变量、类、方法命名的符号</li>
+<li>开头：<ul>
+<li>字母、下划线（<code>_</code>）、美元符（<code>$</code>）</li>
+</ul>
+</li>
+<li>Java 区分大小写<ul>
+<li>abc 和 Abc 是不同的标识符</li>
+</ul>
+</li>
+<li>不允许使用单独的下划线 <code>_</code> 作为标识符<ul>
+<li>下划线 <code>_</code> 必须与其他字符组合</li>
+</ul>
+</li>
+<li>标识符不能是 Java 关键字和保留字<ul>
+<li>但可以包含关键字和保留字</li>
+</ul>
+</li>
+<li>标识符不能含空格</li>
+<li>标识符只能含美元符 <code>$</code> ，不能含 <code>@</code>、<code>#</code> 等其他特殊字符</li>
+</ul>
+</li>
+<li>关键字（keyword）<ul>
+<li>Java 所有的关键字（50个）都是小写</li>
+<li>TRUE 、FALSE 、NULL 不是 Java 关键字<ul>
+<li>这是 Java 的直接量（literal）</li>
+<li>标识符也不能使用这三个特殊的直接量</li>
+</ul>
+</li>
+<li>goto 、const 也成为保留字（reserved word）<ul>
+<li>Java 还未使用这两个关键字</li>
+<li>但可能在未来的 Java 版本中使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="基本数据类型—整型"><a href="#基本数据类型—整型" class="headerlink" title="基本数据类型—整型"></a>基本数据类型—整型</h3><ul>
+<li>byte<ul>
+<li>1字节 = 8位</li>
+<li>表数范围：-128 ~ 127</li>
+<li style="list-style: none"><input type="checkbox" checked> [ -2^7] ~ [ 2^7 - 1]</li>
+</ul>
+</li>
+<li>short<ul>
+<li>2字节 = 16位</li>
+<li>表数范围：-32768 ~ 32767</li>
+<li style="list-style: none"><input type="checkbox" checked> [ -2^15] ~ [ 2^15 - 1]</li>
+</ul>
+</li>
+<li>int<ul>
+<li>4字节 = 32位</li>
+<li>表数范围：-2147483648 ~ 2147483647</li>
+<li style="list-style: none"><input type="checkbox" checked> [ -2^31] ~ [ 2^31 - 1]</li>
+</ul>
+</li>
+<li>long<ul>
+<li>8字节 = 64位</li>
+<li>表数范围：</li>
+<li style="list-style: none"><input type="checkbox" checked> [ -2^63] ~ [ 2^63 - 1]</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">byte</span> a1 <span class="token operator">=</span> <span class="token number">18</span><span class="token punctuation">;</span>
+<span class="token keyword">long</span> a2 <span class="token operator">=</span> 9999999999L<span class="token punctuation">;</span>
+<span class="token keyword">long</span> a3 <span class="token operator">=</span> <span class="token number">9999</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a1<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出：18</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a2<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出：9999999999</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a3<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出：9999</span>
+</code></pre>
+<ul>
+<li>int 是最常用的整数类型，直接给出一个整数类型默认就是 int 类型<ul>
+<li>将一个较小的整数值（byte 或 short 表数范围之内）赋给 byte 或 short ，系统会自动把这个整数当成 byte 或 short 处理</li>
+<li>如果整数值超过 int 表数范围，且希望系统把它当作 long 类型来处理，需要在这个整数值后加上 <code>L</code> 作为后缀</li>
+<li>如果整数值在 int 表数范围之内，可以直接赋值给 long 类型的变量， int 类型会自动类型转换到 long 类型</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>整数值表示方式<ul>
+<li>二进制<ul>
+<li>0b</li>
+<li>0B</li>
+</ul>
+</li>
+<li>八进制<ul>
+<li>0</li>
+</ul>
+</li>
+<li>十进制</li>
+<li>十六进制<ul>
+<li>0x</li>
+<li>0X</li>
+<li>10 ~ 15 = a ~ f = A ~ F </li>
+</ul>
+</li>
+<li>二进制整数更加真实，更能表达整数在内存中的存在形式，在一些开发中使用二进制会更加便捷</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> a4 <span class="token operator">=</span> 0B <span class="token number">1000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0011</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//32位</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a4<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出：-2147483645</span>
+</code></pre>
+<ul>
+<li>32位的二进制整数<ul>
+<li>最高位32位为符号位，当符号位是1时，表明其为负数</li>
+<li>正如前面所指出的，整数值默认是 int 类型，若在二进制整数后添加 <code>L</code> ，这个二进制整数就会占64位，且第64位为符号位</li>
+<li>计算机以补码的形式保存所有的整数<ul>
+<li>正数的原码和补码完全相同</li>
+<li>负数的转换情况如下所示：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2018/10/03/5bb4ce22a016c.jpg" alt="2"></p>
+<ul>
+<li><p>更多例子：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">byte</span> a5 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">)</span>0b <span class="token number">1110</span> <span class="token number">1001</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+定义一个8位的二进制整数，数值默认为32位，因此最高位上无1，即为正数
+强制转换为 byte 类型，产生溢出
+最高位为1，为负数
+1110 1001 ——> 1110 1000 ——> 1001 0111
+*/</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a5<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出：-(2^4 + 2^2 + 2^1 + 2^0 )= -23</span>
+
+<span class="token keyword">long</span> a6 <span class="token operator">=</span> 0b <span class="token number">1000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">0000</span> 0011L<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+定义一个32位的二进制整数，数值默认为32位，符号位为1，即为负数
+数值后添加 L 后缀，因此该整数实际占64位，符号位变为第64位，无1，即为正数
+且有：原码 = 补码
+*/</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a6<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//输出：2^32 + 2^1 + 2^0 = 2147483651</span>
+</code></pre>
+</li>
+</ul>
+<h3 id="基本数据类型—字符型"><a href="#基本数据类型—字符型" class="headerlink" title="基本数据类型—字符型"></a>基本数据类型—字符型</h3><ul>
+<li>Java 使用 Unicode 字符集作为编码方式<ul>
+<li>2字节 =16位</li>
+<li>Unicode 被设计成支持世界上所有书面语言的字符集</li>
+<li>因此 Java 支持各种语言的字符</li>
+</ul>
+</li>
+<li>字符型值必须使用英文单引号 <code>&#39;&#39;</code> 括起来</li>
+</ul>
+<pre class=" language-java"><code class="language-java">  <span class="token keyword">char</span> b1 <span class="token operator">=</span> <span class="token string">'a'</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//单个字符</span>
+  <span class="token keyword">char</span> b2 <span class="token operator">=</span> <span class="token string">'\''</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//转义字符 </span>
+  <span class="token keyword">char</span> b3 <span class="token operator">=</span> <span class="token string">'\"'</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//转义字符</span>
+  <span class="token keyword">char</span> b4 <span class="token operator">=</span> <span class="token string">'帅'</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//单个字符</span>
+  <span class="token keyword">char</span> b5 <span class="token operator">=</span> <span class="token string">'\u9999'</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//Unicode 值，'\u9999'对应'香'字</span>
+  <span class="token keyword">char</span> b6 <span class="token operator">=</span> <span class="token number">107</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//编号107对应字符 k </span>
+  <span class="token keyword">int</span>  b7 <span class="token operator">=</span> <span class="token string">'k'</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//k 的 ASCII 码值为107</span>
+
+
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b1<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出： a</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b2<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出： '</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b3<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出： "</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b4<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出： 帅</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b5<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出： 香</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b6<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出： k</span>
+  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b7<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出： 107</span>
+</code></pre>
+<ul>
+<li>字符型值的三种表示形式<ul>
+<li>单个字符<ul>
+<li>‘A’ 、’9’ 、’0’</li>
+</ul>
+</li>
+<li>转义字符<ul>
+<li>‘\n’ 、’\t’ </li>
+</ul>
+</li>
+<li>直接使用 Unicode 值表示字符<ul>
+<li>‘\uXXXX’</li>
+<li>其中 XXXX 表示一个十六进制的整数，范围为 ‘\u0000’ ~ ‘\uFFFF’ ，共65536个</li>
+<li>其中 ‘\u0000’ ~ ‘\u00FF’ 即为 ASCII 码值，共256个</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>计算机底层保存字符时，实际上是保存字符的编号，因此 char 类型也可以直接作为整型值来使用，它相当于一个16位的无符号整数，表数范围：0 ~ 65535 ，共65536个</li>
+<li>char 类型的变量、值参与加、减、乘、除等运算，实际上便是该字符对应的编码参与运算</li>
+<li>如果把 0 ~ 65535 范围内的 int 整数赋给 char 类型变量，系统会自动把这个 int 整数当成 char 类型来处理</li>
+</ul>
+<pre class=" language-java"><code class="language-java">String s1 <span class="token operator">=</span> <span class="token string">"世间安得双全法，不负如来不负卿"</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//字符串</span>
+String s2 <span class="token operator">=</span> <span class="token string">"C:\\Java"</span><span class="token punctuation">;</span>                   <span class="token comment" spellcheck="true">//转义字符</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出：世间安得双全法，不负如来不负卿</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//输出：C：\Java</span>
+</code></pre>
+<ul>
+<li>Java 没有提供字符串的基本数据类型，而是通过 String 类来表示字符串</li>
+<li>字符串要使用英文双引号 <code>&quot;&quot;</code> 括起来</li>
+<li>Java 中的 <code>&#39;</code> 、<code>&quot;</code> 、<code>\</code> 都有特殊用途</li>
+<li>如果一个字符串中包含了这些特殊字符，则应该用转义字符辅助表示<ul>
+<li><code>\b</code>——退格符</li>
+<li><code>\n</code>——换行符</li>
+<li><code>\r</code>——回车符</li>
+<li><code>\t</code>——制表符</li>
+<li><code>\&quot;</code>——双引号</li>
+<li><code>\&#39;</code>——单引号</li>
+<li><code>\\</code>——反斜线</li>
+<li>Java 会把第一个反斜线 <code>\</code> 当成转义字符</li>
+</ul>
+</li>
+</ul>
+<h3 id="基本数据类型—浮点型"><a href="#基本数据类型—浮点型" class="headerlink" title="基本数据类型—浮点型"></a>基本数据类型—浮点型</h3><ul>
+<li>Java 的浮点类型有固定的表数范围和字段长度，遵循 IEEE 754 标准，与机器无关</li>
+<li>float<ul>
+<li>单精度浮点数</li>
+<li>4字节 = 32位</li>
+</ul>
+</li>
+<li>double<ul>
+<li>双精度浮点数</li>
+<li>8字节 = 64位</li>
+</ul>
+</li>
+<li>表示形式<ul>
+<li>十进制<ul>
+<li>5.12 、512.0 、.512</li>
+<li>必须包含小数点</li>
+</ul>
+</li>
+<li>科学计数法<ul>
+<li>5.12e2 = 5.12 * 10^2</li>
+<li>5.12E2 = 5.12 * 10^2</li>
+<li>（e 或 E 之前的数）* 10^（e 或 E 之后的数）</li>
+<li>只有浮点类型的数值才能使用科学计数法<ul>
+<li>51200 是一个 int 类型的值</li>
+<li>512E2 是一个浮点类型的值</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Java 的浮点类型默认是 double 类型<ul>
+<li>5.12 表示 double 类型，占64位内存空间</li>
+<li>5.12f 或 5.12F 表示 float 类型 ，占32位内存空间</li>
+<li>在数值后面加 d 或 D 后缀，强制指定为 double 类型，但通常没必要</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">double</span> c1 <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
+<span class="token keyword">float</span>  c2 <span class="token operator">=</span> Float<span class="token punctuation">.</span>POSITIVE_INFINITY<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//float 型正无穷大</span>
+<span class="token keyword">double</span> c3 <span class="token operator">=</span> Double<span class="token punctuation">.</span>POSITIVE_INFINITY<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//double 型正无穷大</span>
+<span class="token keyword">float</span>  c4 <span class="token operator">=</span> Float<span class="token punctuation">.</span>NEGATIVE_INFINITY<span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//float 型负无穷大</span>
+<span class="token keyword">double</span> c5 <span class="token operator">=</span> Double<span class="token punctuation">.</span>NEGATIVE_INFINITY<span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//double 型负无穷大</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c1<span class="token punctuation">)</span><span class="token punctuation">;</span>                      <span class="token comment" spellcheck="true">//输出：0.0</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c2<span class="token punctuation">)</span><span class="token punctuation">;</span>                      <span class="token comment" spellcheck="true">//输出：Infinity</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c3<span class="token punctuation">)</span><span class="token punctuation">;</span>                      <span class="token comment" spellcheck="true">//输出：Infinity</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c4<span class="token punctuation">)</span><span class="token punctuation">;</span>                      <span class="token comment" spellcheck="true">//输出：-Infinity</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c5<span class="token punctuation">)</span><span class="token punctuation">;</span>                      <span class="token comment" spellcheck="true">//输出：-Infinity</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c2 <span class="token operator">==</span> c3<span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment" spellcheck="true">//输出：true</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c4 <span class="token operator">==</span> c5<span class="token punctuation">)</span><span class="token punctuation">;</span>                <span class="token comment" spellcheck="true">//输出：true</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c1 <span class="token operator">/</span> c1<span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">//输出：NaN</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>c1 <span class="token operator">/</span> c1 <span class="token operator">==</span> Float<span class="token punctuation">.</span>NaN<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出：false</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">8</span> <span class="token operator">/</span> c1<span class="token punctuation">)</span><span class="token punctuation">;</span>                 <span class="token comment" spellcheck="true">//输出：-Infinity</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">8</span> <span class="token operator">/</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>                  <span class="token comment" spellcheck="true">//输出：ArithmeticException：/by zero</span>
+</code></pre>
+<ul>
+<li>三个特殊的浮点数值，用于表示溢出或出错<ul>
+<li>正无穷大<ul>
+<li>用一个正数除以0得到</li>
+<li>所有正无穷大数值都是相等的</li>
+</ul>
+</li>
+<li>负无穷大<ul>
+<li>用一个负数除以0得到</li>
+<li>所有负无穷大数值都是相等的</li>
+</ul>
+</li>
+<li>非数<ul>
+<li>0.0除以0.0 、对负数开方得到</li>
+<li>一个非数不与任何数值相等，也不与任何非数相等</li>
+</ul>
+</li>
+<li>只有浮点数除以0才能得到正无穷大或负无穷大</li>
+<li>Java 会自动把和浮点数运算的0（整数）当作0.0（浮点数）处理</li>
+<li>一个整数除以0，将抛出一个异常：ArithmeticException：/by zero（除以0异常）</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java">以单精度浮点数<span class="token number">176.0625</span>为例
+
+<span class="token number">1</span>）
+先将<span class="token number">176.0625</span>转换为二进制数
+小数点前：
+   <span class="token number">176</span> <span class="token operator">/</span>  <span class="token number">2</span>  <span class="token operator">=</span> <span class="token number">88</span>    余数为 <span class="token number">0</span>
+   <span class="token number">88</span>  <span class="token operator">/</span>  <span class="token number">2</span>  <span class="token operator">=</span><span class="token number">44</span>     余数为 <span class="token number">0</span>                             
+   <span class="token number">44</span>  <span class="token operator">/</span>  <span class="token number">2</span>  <span class="token operator">=</span><span class="token number">22</span>     余数为 <span class="token number">0</span>                       
+   <span class="token number">22</span>  <span class="token operator">/</span>  <span class="token number">2</span>  <span class="token operator">=</span> <span class="token number">11</span>    余数为 <span class="token number">0</span>                              
+   <span class="token number">11</span>  <span class="token operator">/</span>  <span class="token number">2</span>  <span class="token operator">=</span><span class="token number">5</span>      余数为 <span class="token number">1</span>        
+   <span class="token number">5</span>   <span class="token operator">/</span>  <span class="token number">2</span>  <span class="token operator">=</span><span class="token number">2</span>      余数为 <span class="token number">1</span>                             
+   <span class="token number">2</span>   <span class="token operator">/</span>  <span class="token number">2</span>  <span class="token operator">=</span><span class="token number">1</span>      余数为 <span class="token number">0</span>   
+   <span class="token number">1</span>   <span class="token operator">/</span>  <span class="token number">2</span>  <span class="token operator">=</span><span class="token number">0</span>      余数为 <span class="token number">1</span> <span class="token punctuation">,</span>商为<span class="token number">0</span>，结束
+   小数点前整数转换为二进制<span class="token operator">:</span><span class="token number">1011</span> <span class="token number">0000</span>   
+小数点后：
+   <span class="token number">0.0625</span> <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">0.125</span>   整数为<span class="token number">0</span>                 
+   <span class="token number">0.125</span>  <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">0.25</span>    整数为<span class="token number">0</span>             
+   <span class="token number">0.25</span>   <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">0.50</span>    整数为<span class="token number">0</span>             
+   <span class="token number">0.5</span>    <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">=</span> <span class="token number">1.0</span>     整数为<span class="token number">1</span> <span class="token punctuation">,</span>小数部分为<span class="token number">0</span><span class="token punctuation">,</span>结束
+小数点后的小数位转换为二进制：<span class="token number">0001</span>
+综上：
+<span class="token number">176.0625</span>转换为二进制为：<span class="token number">1011</span> <span class="token number">0000</span> <span class="token punctuation">.</span> <span class="token number">0001</span>
+
+<span class="token number">2</span>）
+IEEE <span class="token number">754</span>约定小数点左边隐含有一位，通常这位数是<span class="token number">1</span>，即把小数点移动到整数位只有<span class="token number">1</span>
+所以有
+<span class="token number">1011</span> <span class="token number">0000</span> <span class="token punctuation">.</span> <span class="token number">0001</span> <span class="token operator">=</span> <span class="token number">1.011</span> <span class="token number">0000</span> <span class="token number">0001</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token operator">^</span><span class="token function">111</span> <span class="token punctuation">(</span>小数点向左偏移<span class="token number">7</span>位，二进制 <span class="token number">7</span> <span class="token operator">=</span> <span class="token number">111</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token number">3</span>）
+符号位：
+<span class="token number">176.0625</span><span class="token operator">></span><span class="token number">0</span>
+<span class="token number">0</span>
+
+<span class="token number">4</span>）
+指数：
+IEEE <span class="token number">754</span>约定单精度指数偏移量为 <span class="token number">127</span> <span class="token operator">=</span> <span class="token number">0111</span> <span class="token number">1111</span>
+<span class="token number">111</span> <span class="token operator">+</span> <span class="token number">0111</span> <span class="token number">1111</span> <span class="token operator">=</span> <span class="token number">1000</span> <span class="token number">0110</span> （十进制 <span class="token number">7</span> <span class="token operator">+</span> <span class="token number">127</span> <span class="token operator">=</span> <span class="token number">134</span>）
+
+<span class="token number">5</span>）
+尾数：
+小数点后面的数
+<span class="token number">0110</span> <span class="token number">0000</span> <span class="token number">0010</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">000</span>
+
+<span class="token number">6</span>）
+综上：
+<span class="token number">176.0625</span>
+使用IEEE <span class="token number">754</span>规格化后的表示为：
+<span class="token number">0</span><span class="token operator">-</span><span class="token number">1000</span> <span class="token number">0110</span><span class="token operator">-</span><span class="token number">0110</span> <span class="token number">0000</span> <span class="token number">0010</span> <span class="token number">0000</span> <span class="token number">0000</span> <span class="token number">000</span>
+</code></pre>
+<ul>
+<li>关于 IEEE 754 标准格式<ul>
+<li>float<ul>
+<li>单精度浮点数</li>
+<li>4字节 = 32位 = 1 + 8 + 23</li>
+<li>符号位1位——指数8位——小数点<code>.</code>——尾数23位</li>
+<li>指数偏移量127</li>
+</ul>
+</li>
+<li>double<ul>
+<li>双精度浮点数</li>
+<li>8字节 = 64位 = 1 + 11 + 52</li>
+<li>符号位1位——指数11位——小数点<code>.</code>——尾数52位</li>
+<li>指数偏移量1023</li>
+</ul>
+</li>
+<li>约定小数点左边隐含有一位，通常这位数是1<ul>
+<li>所以上述单精度尾数长度实际为24</li>
+<li>所以上述双精度尾数长度实际为53</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="数值中使用下划线分隔"><a href="#数值中使用下划线分隔" class="headerlink" title="数值中使用下划线分隔"></a>数值中使用下划线分隔</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">int</span>    d1 <span class="token operator">=</span> 0b1000_0000_0000_0000_0000_0000_0000_0011<span class="token punctuation">;</span>  
+<span class="token keyword">double</span> d2 <span class="token operator">=</span> 100_3<span class="token punctuation">.</span>14_15_9_26_5_36<span class="token punctuation">;</span>    
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d1<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//输出：-2147483645</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>d2<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//输出：1003.1415926536</span>
+</code></pre>
+<ul>
+<li>整型数值</li>
+<li>浮点型数值</li>
+<li>自由使用</li>
+<li>更直观地分辨数值中到底有多少位数</li>
+<li>前面大多数使用 <code></code> 空格不规范，具体到程序当中编译运行需要合并空格</li>
+</ul>
+<h3 id="布尔型"><a href="#布尔型" class="headerlink" title="布尔型"></a>布尔型</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">boolean</span> e1 <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token keyword">boolean</span> e2 <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+String  s1 <span class="token operator">=</span> <span class="token boolean">true</span> <span class="token operator">+</span> <span class="token string">"    tt"</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e1<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出：true</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>e2<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出：false</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出：true   tt</span>
+</code></pre>
+<ul>
+<li>只有一个 boolean 类型</li>
+<li>用于表示逻辑上的“真”和“假”</li>
+<li>boolean 类型的数值只能是 true 或 false</li>
+<li>不能用0或非0代替</li>
+<li>其他基本数据类型的值也不能转换成 boolean 类型</li>
+<li>只需1位即可保存，但计算机允许分配的最小内存单元是1字节（8位），因此实际上占用8位</li>
+<li>使用 boolean 类型的值和字符串进行连接运算， boolean 类型的值会自动转换成字符串</li>
+</ul>
+<h3 id="基本数据类型的转换"><a href="#基本数据类型的转换" class="headerlink" title="基本数据类型的转换"></a>基本数据类型的转换</h3><ul>
+<li>Java 提供的7种数值类型之间可以互相转换（注意箭头方向）</li>
+</ul>
+<p>  <img src="https://i.loli.net/2018/10/03/5bb4d0c838787.jpg" alt="3"></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span>     f1 <span class="token operator">=</span> <span class="token number">6</span><span class="token punctuation">;</span>
+<span class="token keyword">float</span>    f2 <span class="token operator">=</span> f1<span class="token punctuation">;</span>
+<span class="token keyword">byte</span>    f3 <span class="token operator">=</span> <span class="token number">9</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span>  f4 <span class="token operator">=</span> f3<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//String s = 5;//错误，因为整数不能直接赋给一个字符串</span>
+
+String  s1 <span class="token operator">=</span> <span class="token number">3.5f</span> <span class="token operator">+</span> <span class="token string">"AA"</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f1<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出：6</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f2<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出：6.0</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f3<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出：9</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f4<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出：9.0</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s1<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//输出：3.5AA</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">+</span> <span class="token number">4</span> <span class="token operator">+</span> <span class="token string">"Hello！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+<span class="token comment" spellcheck="true">/*
+先执行：3 + 4 = 7
+输出：7Hello！
+*/</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello！"</span> <span class="token operator">+</span> <span class="token number">3</span> <span class="token operator">+</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+先执行：Hello！3
+输出：Hello！34
+*/</span>
+</code></pre>
+<ul>
+<li>自动类型转换</li>
+<li>系统支持</li>
+<li>把一个表数范围小的直接赋值给一个表数范围大的</li>
+<li>任何基本类型的值和字符串进行连接运算时，基本类型的值将自动转换成字符串类型<ul>
+<li>如果希望把基本类型的值转换成对应的字符串，可以将其与一个空字符串进行连接</li>
+<li><code>+</code> 不仅可以作为加法运算符，还可以作为字符串连接运算符</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">double</span> f5 <span class="token operator">=</span> <span class="token number">3.98</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span>    f6 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>f5<span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f6<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token comment" spellcheck="true">/*
+Java 将直接截断浮点数的小数部分
+输出：3
+*/</span>
+</code></pre>
+<ul>
+<li>强制类型转换<ul>
+<li><code>(targetType)value</code></li>
+<li>缩小转换</li>
+<li>当试图强制把表数范围大的转换成表数范围小的，要格外小心，因为非常容易引起信息丢失</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RandomString</span>
+<span class="token punctuation">{</span>
+     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
+     <span class="token punctuation">{</span>
+            String result <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//定义一个空字符串</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">6</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+               <span class="token punctuation">{</span>
+                 <span class="token keyword">int</span> f7  <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">26</span> <span class="token operator">+</span> <span class="token number">97</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+                <span class="token comment" spellcheck="true">/*
+                生成一个97~122（a~z）之间的 int 类型整数
+                */</span>
+                 result  <span class="token operator">=</span> result <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span>f7<span class="token punctuation">;</span> 
+               <span class="token punctuation">}</span>
+     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出一个随机的6位字符串</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<ul>
+<li>网络上经常遇到的临时验证码机制</li>
+</ul>
+<pre class=" language-java"><code class="language-java">String  s <span class="token operator">=</span> <span class="token string">"4556"</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span>    f8 <span class="token operator">=</span> Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//输出：4556</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f8<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出：4556</span>
+</code></pre>
+<ul>
+<li><code>Integer.parseInt()</code></li>
+<li>通常情况下，字符串不能直接转换成基本类型</li>
+<li>但可通过基本类型对应的包装类实现</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">byte</span>    f9      <span class="token operator">=</span> <span class="token number">40</span><span class="token punctuation">;</span>
+<span class="token keyword">char</span>    f10     <span class="token operator">=</span> <span class="token string">'a'</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span>     f11     <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span>  f12     <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token number">56789</span><span class="token punctuation">;</span>
+<span class="token keyword">double</span>  result  <span class="token operator">=</span> f9 <span class="token operator">+</span> f10 <span class="token operator">+</span> f11 <span class="token operator">*</span> f12<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+右边表达式中最高等级操作数为 double 型
+所以应该给 result 赋给一个 double 类型
+若赋予 result 其他类型
+将发生错误 
+*/</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f9<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//输出：40</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f10<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//输出：a</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f11<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//输出：50</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f12<span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment" spellcheck="true">//输出：0.56789</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//输出：165.3945</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">'a'</span> <span class="token operator">+</span> <span class="token number">3</span> <span class="token operator">+</span> <span class="token string">"Hello！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+a 自动提升到 int 类型
+变成对应的 ASCII 码值 97
+先执行：97 + 3 = 100
+输出：100Hello！
+*/</span>
+</code></pre>
+<ul>
+<li>当一个算术表达式中包含多个基本类型的值时，整个算术表达式的数据类型将发生自动提升<ul>
+<li>byte 、short 、char 提升到 int 类型</li>
+<li>自动提升到与表达式中最高等级操作数同样的类型</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">short</span> f13 <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span>   f14 <span class="token operator">=</span> <span class="token number">25</span> <span class="token operator">/</span> f13<span class="token punctuation">;</span>  
+<span class="token comment" spellcheck="true">/*
+数学上得到8.33333......
+但结果严格保持和表达式中最高等级操作数相同的类型 int
+*/</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f13<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出：3</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>f14<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">//输出：8</span>
+</code></pre>
+<ul>
+<li>两个整数进行除法运算，如果不能整除，将直接把小数部分截断，取整数部分</li>
+</ul>
+<h3 id="直接量"><a href="#直接量" class="headerlink" title="直接量"></a>直接量</h3><ul>
+<li>程序中通过源代码直接给出的值<ul>
+<li>int 类型直接量<ul>
+<li>在程序中直接给出的整型数值</li>
+<li>二进制 、八进制 、十进制 、十六进制</li>
+</ul>
+</li>
+<li>long 类型直接量<ul>
+<li>在整型数值后加上 L 后缀（也可以加 1 ，但是容易混淆）</li>
+</ul>
+</li>
+<li>char 类型直接量<ul>
+<li>单引号括起来的字符</li>
+<li>转义字符</li>
+<li>Unicode 值</li>
+</ul>
+</li>
+<li>double 类型直接量<ul>
+<li>标准小数形式 、科学计数法</li>
+</ul>
+</li>
+<li>float 类型直接量<ul>
+<li>在一个浮点型数值后加上 f 或 F 后缀</li>
+<li>标准小数形式 、科学计数法</li>
+</ul>
+</li>
+<li>boolean 类型直接量<ul>
+<li>true</li>
+<li>false</li>
+</ul>
+</li>
+<li>String 类型直接量<ul>
+<li>双引号括起来的字符序列</li>
+</ul>
+</li>
+<li>null 类型直接量<ul>
+<li>null</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>boolean 类型的直接量只能赋值给 boolean 类型</li>
+<li>null 类型的直接量可以直接赋给任何引用类型</li>
+</ul>
+<ul>
+<li>1966年，计算机科学家 Bohm 和 Jacopini 证明了任何简单或复杂的算法都可以由下列三种基本结构组合而成：<ol>
+<li>顺序结构：按照源代码中的排列顺序依次执行</li>
+<li>选择结构：单选，双选，多选</li>
+<li>循环结构：当型（先判断后执行），直到型（先执行后判断）</li>
+</ol>
+</li>
+</ul>
 
                 </div>
                 <hr/>
@@ -583,9 +1266,9 @@ C<span class="token operator">:</span>\User\username <span class="token operator
                     
                     <div class="card-action article-tags">
                         
-                        <a href="https://achillesprime.github.io/tags/Java/"><span class="chip bg-color">Java</span></a>
-                        
                         <a href="https://achillesprime.github.io/tags/Foundation/"><span class="chip bg-color">Foundation</span></a>
+                        
+                        <a href="https://achillesprime.github.io/tags/Java/"><span class="chip bg-color">Java</span></a>
                         
                     </div>
                     
@@ -639,9 +1322,9 @@ select * from teachers
                     
                     <div class="card-action article-tags">
                         
-                        <a href="https://achillesprime.github.io/tags/Foundation/"><span class="chip bg-color">Foundation</span></a>
-                        
                         <a href="https://achillesprime.github.io/tags/Database/"><span class="chip bg-color">Database</span></a>
+                        
+                        <a href="https://achillesprime.github.io/tags/Foundation/"><span class="chip bg-color">Foundation</span></a>
                         
                     </div>
                     
