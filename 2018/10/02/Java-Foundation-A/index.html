@@ -1591,6 +1591,409 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 </ul>
 </li>
 </ul>
+<hr>
+<h1 id="流程控制结构"><a href="#流程控制结构" class="headerlink" title="流程控制结构"></a>流程控制结构</h1><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><ul>
+<li>1966年，计算机科学家 Bohm 和 Jacopini 证明了任何简单或复杂的算法都可以由下列三种基本结构组合而成：<ul>
+<li>顺序结构：按照源代码中的排列顺序从上到下依次执行</li>
+<li>选择结构：单选，双选，多选</li>
+<li>循环结构：当型（先判断后执行），直到型（先执行后判断）</li>
+</ul>
+</li>
+</ul>
+<h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>a <span class="token operator">></span> <span class="token number">4</span><span class="token punctuation">)</span>
+    a<span class="token operator">--</span><span class="token punctuation">;</span>                            <span class="token comment" spellcheck="true">//if 语句唯一的条件执行体</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a 大于4"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//已经不属于 if 语句的条件执行体</span>
+<span class="token keyword">else</span>                                <span class="token comment" spellcheck="true">//没有 if 语句对应，从而引起编译错误</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"a 小于4"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<ul>
+<li>若没有 <code>{ }</code> 则 <code>if</code> 条件语句只控制到紧跟该条件语句的第一个分号处</li>
+<li>即使只有一行代码，也推荐加上花括号 <code>{ }</code> </li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> age1 <span class="token operator">=</span> <span class="token number">45</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>age1 <span class="token operator">></span> <span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"青年人"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>    
+
+<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>age1 <span class="token operator">></span> <span class="token number">40</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"中年人"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>    
+
+<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>age1 <span class="token operator">></span> <span class="token number">60</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"老年人"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>                                      <span class="token comment" spellcheck="true">//最后的 else 也可以省略</span>
+<span class="token comment" spellcheck="true">/*
+输出：青年人
+实际上希望判断45岁是中年人
+表面上看起来 else 后面没有条件
+或者 else if 后面只有一个条件
+但真相是
+else 本身就是一个条件
+else 隐含的条件就是对前面条件的取反
+所以上面的三个条件实际上对应
+    1.age1 > 20  =  age1 > 20
+    2.age1 > 40  =  age1 > 40 &amp;&amp; !(age1 > 20)
+    3.age1 > 60  =  age1 > 60 &amp;&amp; !(age1 > 40) &amp;&amp; !(age1 > 40 &amp;&amp; !(age1 > 20))
+条件2和条件3永远不可能发生
+*/</span>
+
+<span class="token keyword">int</span> age2 <span class="token operator">=</span> <span class="token number">45</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span><span class="token punctuation">(</span>age2 <span class="token operator">></span> <span class="token number">60</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"青年人"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>    
+
+<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>age2 <span class="token operator">></span> <span class="token number">40</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"中年人"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>    
+
+<span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>age2 <span class="token operator">></span> <span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"老年人"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>     
+<span class="token comment" spellcheck="true">/*
+输出：中年人
+上面的三个条件实际上对应
+    1.age2 > 60  =  age2 > 60
+      -年龄大于60
+    2.age2 > 40  =  age2 > 40 &amp;&amp; !(age2 > 60)
+      -年龄大于40，且小于60
+    3.age2 > 20  =  age2 > 20 &amp;&amp; !(age2 > 60) &amp;&amp; !(age2 > 40 &amp;&amp; !(age2 > 60))
+      -年龄大于20，且小于40
+*/</span>
+</code></pre>
+<ul>
+<li>使用 <code>if...else</code> 语句时的一条基本规则<ul>
+<li>总是优先把包含范围小的条件放在前面处理</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>String<span class="token punctuation">;</span>
+
+String season <span class="token operator">=</span> <span class="token string">"夏天"</span><span class="token punctuation">;</span>
+<span class="token keyword">switch</span> <span class="token punctuation">(</span>season<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token string">"春天"</span><span class="token operator">:</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"春暖花开"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">"夏天"</span><span class="token operator">:</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"夏日炎炎"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">"秋天"</span><span class="token operator">:</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"秋高气爽"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">case</span> <span class="token string">"冬天"</span><span class="token operator">:</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"冬雪皑皑"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token keyword">default</span><span class="token operator">:</span>
+         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"季节输入错误"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+输出：夏日炎炎
+*/</span>
+</code></pre>
+<ul>
+<li><code>switch</code><ul>
+<li>控制表达式的数据类型只能是<ul>
+<li>byte 、short 、char 、int</li>
+<li>枚举 enum</li>
+<li>java.lang.String<ul>
+<li>Java 7 以上版本</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可以省略 case 后面的 <code>{ }</code></li>
+<li>default 和 else 类似<ul>
+<li>看似没有条件其实有隐含条件</li>
+<li>即 switch 括号内表达式的值不能与前面任何一个 case 标签后的值相等</li>
+</ul>
+</li>
+<li>没有 <code>break;</code> <ul>
+<li>则会从匹配到的第一个 case 开始一路向下执行</li>
+<li>不再判断 case 和 default</li>
+<li>直到遇到 break 结束</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">while</span><span class="token punctuation">(</span>count <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    count<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"循环结束！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+输出：
+1 ~ 9
+循环结束！
+*/</span>
+</code></pre>
+<ul>
+<li><code>while</code><ul>
+<li>先判断，后执行</li>
+<li>如果省略了循环体的花括号 <code>{ }</code></li>
+<li>那么 while 循环条件仅仅控制到跟进该循环条件的第一个分号处</li>
+<li>例如循环体部分和迭代语句合并在一起</li>
+<li>但通常建议加上花括号</li>
+<li>两个陷阱<ul>
+<li>死循环<ul>
+<li>循环条件一直为 true</li>
+</ul>
+</li>
+<li>while 循环条件后紧跟一个分号 <code>;</code><ul>
+<li>一个单独的分号 <code>;</code> 表示一个空语句</li>
+<li>不做任何事的空语句</li>
+<li>这意味着循环体是空语句</li>
+<li>同时循环条件的返回值没有任何改变</li>
+<li>也成了一个死循环</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+
+<span class="token keyword">do</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    count<span class="token operator">++</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token keyword">while</span><span class="token punctuation">(</span>count <span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"循环结束！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+输出：
+1 ~ 9
+循环结束！
+*/</span>
+</code></pre>
+<ul>
+<li><code>do while</code><ul>
+<li>先执行，后判断</li>
+<li>do while 循环至少执行一次</li>
+<li>do while 的循环条件后必须有一个 <code>;</code><ul>
+<li>表明循环结束</li>
+</ul>
+</li>
+<li>循环体部分和迭代语句合并在一起，可以省略 <code>{ }</code> <ul>
+<li>但通常建议加上花括号</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> count <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> count <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> count<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"循环结束！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">/*
+输出：
+1 ~ 9
+循环结束！
+*/</span>
+
+
+<span class="token keyword">int</span> outcount <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//此处 outcount 必须初始化，否则会产生编译错误</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> incount <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> incount <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> incount<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>incount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    outcount <span class="token operator">=</span> incount<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"循环结束！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>outcount<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//此处 outcount 在循环之前必须初始化，否则会产生编译错误</span>
+<span class="token comment" spellcheck="true">/*
+输出：
+1 ~ 9
+循环结束！
+9
+可以使用一个循环之外的变量来保存循环变量 incount 的值
+若将循环变量 incount 定义在循环之前
+作用域扩大了
+但如果该方法还有另一个循环也需要定义循环变量
+将不能再次使用之前的循环变量 incount
+推荐使用 i 、j 、k 来作为循环变量
+*/</span>
+</code></pre>
+<ul>
+<li><code>for</code><ul>
+<li>更加简洁</li>
+<li>可以代替 while 、do while 循环语句</li>
+<li>循环条件总比循环体要多执行一次</li>
+<li>循环迭代语句与循环体分离<ul>
+<li>可无视 continue 的作用</li>
+</ul>
+</li>
+<li>如果循环体只有一行，可省略花括号 <code>{ }</code><ul>
+<li>但通常建议加上花括号</li>
+</ul>
+</li>
+<li>初始化语句<ul>
+<li>单个初始化</li>
+<li>多个初始化<ul>
+<li>必须是相同的数据类型，即只能有一个声明语句</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>循环条件<ul>
+<li>boolean 表达式</li>
+<li>包含逻辑运算符的表达式</li>
+</ul>
+</li>
+<li>建议不要在循环体内修改循环变量（即循环计数器）的值</li>
+<li>初始化语句、循环条件、迭代语句<ul>
+<li>都可以省略</li>
+<li>省略循环条件，循环条件默认为 true，会变成一个死循环</li>
+</ul>
+</li>
+<li>for 循环里定义的变量<ul>
+<li>作用域仅在循环体内有效</li>
+<li>for 循环结束后，这些变量将不可访问</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="控制循环结构"><a href="#控制循环结构" class="headerlink" title="控制循环结构"></a>控制循环结构</h3><pre class=" language-java"><code class="language-java">outer<span class="token operator">:</span>     
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+         <span class="token punctuation">{</span>
+            <span class="token keyword">break</span> outer<span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+输出：
+0 ，0
+0 ，1
+break 将结束标签 outer 标识的循环体
+*/</span>
+</code></pre>
+<ul>
+<li><code>break</code><ul>
+<li>完全结束一个循环</li>
+<li>开始执行循环之后的代码</li>
+<li>标签<ul>
+<li>一个紧跟着英文冒号 <code>:</code> 的标识符</li>
+<li>break 后面紧跟一个标签，可以直接结束标签所标识的循环</li>
+<li>有效性<ul>
+<li>在 break 语句所在的循环之前定义<ul>
+<li>但就没有了标签的意义</li>
+<li>因为 break 语句默认就是结束其本身所在的循环</li>
+</ul>
+</li>
+<li>或者在 break 语句所在的循环的外层循环之前定义</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java">outer<span class="token operator">:</span>     
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">5</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> j <span class="token operator">&lt;</span> <span class="token number">5</span> <span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token string">","</span> <span class="token operator">+</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token keyword">if</span> <span class="token punctuation">(</span>j <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+         <span class="token punctuation">{</span>
+            <span class="token keyword">continue</span> outer<span class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+输出：
+0 ，0
+1 ，0
+2 ，0
+3 ，0
+4 ，0
+每当内层循环变量 j == 0
+continue 将结束标签 outer 标识的循环体的本次循环
+循环变量 j 无法超越 0
+*/</span>
+</code></pre>
+<ul>
+<li><code>continue</code><ul>
+<li>直接结束本次循环中 continue 之后的代码</li>
+<li>直接开始下一次循环</li>
+<li>如果把 continue 放在循环体最后一句，就没有了意义</li>
+<li>标签<ul>
+<li>一个紧跟着英文冒号 <code>:</code> 的标识符</li>
+<li>可以直接跳过标签所标识的循环的当前循环，重新开始下一次循环</li>
+<li>有效性<ul>
+<li>在 continue 语句所在的循环之前定义<ul>
+<li>但就没有了标签的意义</li>
+<li>因为 continue 语句默认就是结束其本身所在的循环的本次循环</li>
+</ul>
+</li>
+<li>或者在 continue 语句所在的循环的外层循环之前定义</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+输出：
+0
+1
+当 main 方法结束时，也就是 Java 程序结束时
+*/</span>
+</code></pre>
+<ul>
+<li><code>return</code><ul>
+<li>return 不是专门用于结束循环的</li>
+<li>其功能是结束一个方法</li>
+<li>当一个方法执行到 return 语句时将被结束</li>
+<li>Java 中大部分循环都是放在方法中执行的</li>
+<li>一旦在循环体内执行到 return 语句，return 语句就会结束该方法<ul>
+<li>循环自然也就结束了</li>
+</ul>
+</li>
+<li>和 break 、continue 不同<ul>
+<li>return 直接结束整个方法</li>
+<li>不管这个 return 处于多少层循环中</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
                 </div>
                 <hr/>
