@@ -1187,13 +1187,7 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 <li>null 类型的直接量可以直接赋给任何引用类型</li>
 </ul>
 <hr>
-<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><ul>
-<li><code>+</code> 加</li>
-<li><code>-</code> 减</li>
-<li><code>*</code> 乘</li>
-<li><code>/</code> 除</li>
-</ul>
-<pre class=" language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">+</span><span class="token number">5</span>   <span class="token operator">%</span>  <span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//输出：NaN</span>
+<h1 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h1><h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><pre class=" language-java"><code class="language-java">System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">+</span><span class="token number">5</span>   <span class="token operator">%</span>  <span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//输出：NaN</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span>   <span class="token operator">%</span>  <span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment" spellcheck="true">//输出：NaN</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token number">5.0</span>  <span class="token operator">%</span>  <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//输出：NaN</span>
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5.0</span> <span class="token operator">%</span>  <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//输出：NaN</span>
@@ -1203,9 +1197,37 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span>   <span class="token operator">%</span>  <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment" spellcheck="true">//输出：ArithmeticException：/by zero</span>
 </code></pre>
 <ul>
-<li><code>%</code> 求余</li>
-<li><code>++</code> 自加<ul>
-<li>单目运算符</li>
+<li><p><code>+</code> </p>
+<ul>
+<li>加</li>
+</ul>
+</li>
+<li><p><code>-</code> </p>
+<ul>
+<li>减</li>
+</ul>
+</li>
+<li><p><code>*</code> </p>
+<ul>
+<li>乘</li>
+</ul>
+</li>
+<li><p><code>/</code> </p>
+<ul>
+<li>除</li>
+</ul>
+</li>
+<li><p><code>%</code> </p>
+<ul>
+<li>求余</li>
+</ul>
+</li>
+<li><p><code>++</code> </p>
+<ul>
+<li><p>自加</p>
+</li>
+<li><p>单目运算符</p>
+</li>
 <li>只能操作一个操作数</li>
 <li>只能操作单个数值型的变量</li>
 <li>不能操作常量或表达式</li>
@@ -1213,8 +1235,12 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 <li>右边：先运算，后加1</li>
 </ul>
 </li>
-<li><code>--</code> 自减<ul>
-<li>单目运算符</li>
+<li><p><code>--</code> </p>
+<ul>
+<li><p>自减</p>
+</li>
+<li><p>单目运算符</p>
+</li>
 <li>只能操作一个操作数</li>
 <li>只能操作单个数值型的变量</li>
 <li>不能操作直接量、常量或表达式</li>
@@ -1241,20 +1267,6 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 <h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><ul>
 <li><code>=</code></li>
 <li>左边只能是变量</li>
-<li>扩展后的赋值运算符<ul>
-<li><code>+=</code></li>
-<li><code>-=</code></li>
-<li><code>*=</code></li>
-<li><code>/=</code></li>
-<li><code>%=</code></li>
-<li><code>&amp;=</code></li>
-<li><code>|=</code></li>
-<li><code>^=</code></li>
-<li><code>&lt;&lt;=</code></li>
-<li><code>&gt;&gt;=</code></li>
-<li><code>&gt;&gt;&gt;=</code></li>
-</ul>
-</li>
 </ul>
 <pre class=" language-java"><code class="language-java"><span class="token keyword">byte</span> b1 <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
      b1 <span class="token operator">=</span> b1 <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
@@ -1273,6 +1285,20 @@ a + 5 就是 int 类型
 System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b2<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//输出:10</span>
 </code></pre>
 <ul>
+<li>扩展后的赋值运算符<ul>
+<li><code>+=</code></li>
+<li><code>-=</code></li>
+<li><code>*=</code></li>
+<li><code>/=</code></li>
+<li><code>%=</code></li>
+<li><code>&amp;=</code></li>
+<li><code>|=</code></li>
+<li><code>^=</code></li>
+<li><code>&lt;&lt;=</code></li>
+<li><code>&gt;&gt;=</code></li>
+<li><code>&gt;&gt;&gt;=</code></li>
+</ul>
+</li>
 <li>b = b + 5 和 b += 5 <ul>
 <li>表面上运行结果相同</li>
 <li>但底层的运行机制还是存在一定差异</li>
@@ -1563,14 +1589,6 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<ul>
-<li>1966年，计算机科学家 Bohm 和 Jacopini 证明了任何简单或复杂的算法都可以由下列三种基本结构组合而成：<ol>
-<li>顺序结构：按照源代码中的排列顺序依次执行</li>
-<li>选择结构：单选，双选，多选</li>
-<li>循环结构：当型（先判断后执行），直到型（先执行后判断）</li>
-</ol>
 </li>
 </ul>
 
