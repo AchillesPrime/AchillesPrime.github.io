@@ -1144,6 +1144,37 @@ String<span class="token punctuation">[</span><span class="token punctuation">]<
 愿君多采撷
 此物最相思
 */</span>
+
+
+
+String<span class="token punctuation">[</span><span class="token punctuation">]</span> poems <span class="token operator">=</span> <span class="token punctuation">{</span>
+                   <span class="token string">"红豆生南国"</span><span class="token punctuation">,</span>
+                   <span class="token string">"春来发几枝"</span><span class="token punctuation">,</span>
+                   <span class="token string">"愿君多采撷"</span><span class="token punctuation">,</span>
+                   <span class="token string">"此物最相思"</span><span class="token punctuation">,</span>
+                 <span class="token punctuation">}</span><span class="token punctuation">;</span>         
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span>String poem <span class="token operator">:</span> poems<span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">//形参 poem 将自动迭代遍历每个数组元素</span>
+<span class="token punctuation">{</span>
+     poem <span class="token operator">=</span> <span class="token string">"红豆生南国"</span><span class="token punctuation">;</span>
+     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>poem<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+输出：
+红豆生南国
+红豆生南国
+红豆生南国
+红豆生南国
+给循环变量 poem 赋值虽然语法上可行
+但没有意义
+且会引起错误
+循环变量 poem 相当于一个临时变量
+系统会把数组元素依次赋给这个临时变量
+这个临时变量不是数组元素
+它只是保存了数组元素的值
+如果希望改变数组元素的值
+则不应该用 foreach 循环
+*/</span>
 </code></pre>
 <ul>
 <li><code>foreach</code></li>
@@ -1151,8 +1182,12 @@ String<span class="token punctuation">[</span><span class="token punctuation">]<
 <li>无需根据索引来访问数组元素（或集合元素）</li>
 <li>无需循环条件、无需迭代语句</li>
 <li>由系统自动完成</li>
-<li>循环过程中不会改变数组元素的值</li>
+<li>循环过程中不会改变数组元素的值<ul>
+<li>不要对 foreach 的循环变量赋值</li>
 </ul>
+</li>
+</ul>
+<hr>
 
                 </div>
                 <hr/>
