@@ -149,9 +149,9 @@
                 
                 <div class="article-tag">
                     
-                    <a href="https://achillesprime.github.io/tags/Foundation/" target="_blank"><span class="chip bg-color">Foundation</span></a>
-                    
                     <a href="https://achillesprime.github.io/tags/Java/" target="_blank"><span class="chip bg-color">Java</span></a>
+                    
+                    <a href="https://achillesprime.github.io/tags/Foundation/" target="_blank"><span class="chip bg-color">Foundation</span></a>
                     
                 </div>
                 
@@ -1031,74 +1031,90 @@ continue 将结束标签 outer 标识的循环体的本次循环
 </li>
 <li><p>并必须为每个数组元素赋初始值</p>
 </li>
-<li><p>静态初始化</p>
+</ul>
+</li>
+</ul>
+<pre class=" language-java"><code class="language-java">type<span class="token punctuation">[</span><span class="token punctuation">]</span> arrayName
+arrayName <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">type</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>element1 <span class="token punctuation">,</span> element2 <span class="token punctuation">,</span> element3 <span class="token punctuation">,</span> element4 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+
+type<span class="token punctuation">[</span><span class="token punctuation">]</span> arrayName <span class="token operator">=</span> <span class="token punctuation">{</span>element1 <span class="token punctuation">,</span> element2 <span class="token punctuation">,</span> element3 <span class="token punctuation">,</span> element4 <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>
+
+
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">;</span>
+a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">5</span> <span class="token punctuation">,</span> <span class="token number">6</span> <span class="token punctuation">,</span> <span class="token number">8</span> <span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Object<span class="token punctuation">[</span><span class="token punctuation">]</span> b1<span class="token punctuation">;</span>
+b1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">"晚来天欲雪，"</span> <span class="token punctuation">,</span> <span class="token string">"能饮一杯无。"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+Object<span class="token punctuation">[</span><span class="token punctuation">]</span> b2<span class="token punctuation">;</span>
+b2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">"晚来天欲雪，"</span> <span class="token punctuation">,</span> <span class="token string">"能饮一杯无。"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/*
+String 类型是 Object 类型的子类
+子类的实例是一种特殊的父类实例
+即字符串是一种特殊的 Object 实例
+*/</span>
+
+
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token number">5</span> <span class="token punctuation">,</span> <span class="token number">6</span> <span class="token punctuation">,</span> <span class="token number">7</span> <span class="token punctuation">,</span> <span class="token number">9</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
 <ul>
-<li><p>由程序员显式分配每个数组元素的初始值，由系统决定数组的长度</p>
-<p><code>`</code>java<br>type[] arrayName<br>arrayName = new type[] {element1 , element2 , element3 , element4 ……}</p>
-<p>type[] arrayName = {element1 , element2 , element3 , element4 ……}</p>
-</li>
+<li>静态初始化<ul>
+<li>由程序员显式分配每个数组元素的初始值，由系统决定数组的长度</li>
+<li>new 关键字后面的 type 就是定义数组时所使用的 type 类型，也可以是定义数组时所指定的 type 类型的子类</li>
+<li>数组元素值必须和 new 关键字后面的 type 类型相同，或者是其子类的实例</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<pre><code>  int[] a;
-  a = new int[]{5 , 6 , 8 , 20};
+<pre class=" language-java"><code class="language-java">type<span class="token punctuation">[</span><span class="token punctuation">]</span> arrayName
+arrrayName <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">type</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span>
 
-  Object[] b1;
-  b1 = new String[]{&quot;晚来天欲雪，&quot; , &quot;能饮一杯无。&quot;};
-
-  Object[] b2;
-  b2 = new Object[]{&quot;晚来天欲雪，&quot; , &quot;能饮一杯无。&quot;};
-
-  /*
-  String 类型是 Object 类型的子类
-  子类的实例是一种特殊的父类实例
-  即字符串是一种特殊的 Object 实例
-  */
+type<span class="token punctuation">[</span><span class="token punctuation">]</span> arrayName <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">type</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span>
 
 
 
-  int[] a = {5 , 6 , 7 , 9};
-  ```
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//定义和初始化同时完成</span>
 
-- new 关键字后面的 type 就是定义数组时所使用的 type 类型，也可以是定义数组时所指定的 type 类型的子类
-
-- 数组元素值必须和 new 关键字后面的 type 类型相同，或者是其子类的实例
-</code></pre><ul>
+Object<span class="token punctuation">[</span><span class="token punctuation">]</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//定义和初始化同时完成</span>
+</code></pre>
+<ul>
 <li><p>动态初始化</p>
 <ul>
-<li><p>由程序员指定数组的长度，由系统为数组元素分配初始值</p>
-<p><code>`</code>java<br>type[] arrayName<br>arrrayName = new type[length]</p>
-<p>type[] arrayName = new type[length]</p>
+<li>由程序员指定数组的长度，由系统为数组元素分配初始值</li>
+<li><p>需要指定一个 int 类型的 length</p>
+</li>
+<li><p>length 指定了数组的长度，也就是可容纳数组元素的个数</p>
+</li>
+<li><p>new 关键字后面的 type 就是定义数组时所使用的 type 类型，也可以是定义数组时所指定的 type 类型的子类</p>
+<ul>
+<li><p>系统按如下规则分配初始值</p>
+<ul>
+<li>byte 、short 、int 、long<ul>
+<li>0</li>
+</ul>
+</li>
+<li>float 、double<ul>
+<li>0.0</li>
+</ul>
+</li>
+<li>char<ul>
+<li>‘\u0000’</li>
+</ul>
+</li>
+<li>boolean<ul>
+<li>false</li>
+</ul>
+</li>
+<li>类、接口和数组<ul>
+<li>null</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code>  int[] a = new int[5];        //定义和初始化同时完成
-
-  Object[] b = new String[4];    //定义和初始化同时完成
-  ```
-
-- 需要指定一个 int 类型的 length
-
-- length 指定了数组的长度，也就是可容纳数组元素的个数
-
-- new 关键字后面的 type 就是定义数组时所使用的 type 类型，也可以是定义数组时所指定的 type 类型的子类
-
-- 系统按如下规则分配初始值
-
-  - byte 、short 、int 、long
-    - 0
-  - float 、double
-    - 0.0
-  - char
-    - &#39;\u0000&#39;
-  - boolean
-    - false
-  - 类、接口和数组
-    - null
-</code></pre><ul>
+</li>
 <li><p>不要同时使用静态初始化和动态初始化</p>
 <ul>
 <li>即不要同时指定数组长度且为每个数组元素分配初始值</li>
@@ -1297,9 +1313,9 @@ System.out.print</div>
                     
                     <div class="card-action article-tags">
                         
-                        <a href="https://achillesprime.github.io/tags/Foundation/"><span class="chip bg-color">Foundation</span></a>
-                        
                         <a href="https://achillesprime.github.io/tags/Java/"><span class="chip bg-color">Java</span></a>
+                        
+                        <a href="https://achillesprime.github.io/tags/Foundation/"><span class="chip bg-color">Foundation</span></a>
                         
                     </div>
                     
@@ -1346,9 +1362,9 @@ System.out.print</div>
                     
                     <div class="card-action article-tags">
                         
-                        <a href="https://achillesprime.github.io/tags/Foundation/"><span class="chip bg-color">Foundation</span></a>
-                        
                         <a href="https://achillesprime.github.io/tags/Java/"><span class="chip bg-color">Java</span></a>
+                        
+                        <a href="https://achillesprime.github.io/tags/Foundation/"><span class="chip bg-color">Foundation</span></a>
                         
                     </div>
                     
