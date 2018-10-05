@@ -149,9 +149,9 @@
                 
                 <div class="article-tag">
                     
-                    <a href="https://achillesprime.github.io/tags/Java/" target="_blank"><span class="chip bg-color">Java</span></a>
-                    
                     <a href="https://achillesprime.github.io/tags/Foundation/" target="_blank"><span class="chip bg-color">Foundation</span></a>
+                    
+                    <a href="https://achillesprime.github.io/tags/Java/" target="_blank"><span class="chip bg-color">Java</span></a>
                     
                 </div>
                 
@@ -841,6 +841,47 @@ System<span class="token punctuation">.</span>out<span class="token punctuation"
 </ul>
 </li>
 </ul>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> k <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> i <span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        k <span class="token operator">=</span> i <span class="token operator">*</span> j<span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span>j <span class="token operator">+</span> <span class="token string">"*"</span> <span class="token operator">+</span> i <span class="token operator">+</span> <span class="token string">"="</span> <span class="token operator">+</span> k <span class="token operator">+</span> <span class="token string">'\t'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span><span class="token punctuation">(</span>j <span class="token operator">==</span> i<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">'\n'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+输出：乘法口诀
+*/</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span> n <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token punctuation">(</span>n <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j1 <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> j1 <span class="token operator">&lt;</span> n <span class="token operator">-</span> i <span class="token punctuation">;</span> j1<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">" "</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> j2 <span class="token operator">=</span> <span class="token number">0</span>  <span class="token punctuation">;</span> j2 <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">*</span> i<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span> <span class="token punctuation">;</span> j2<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"￥"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token operator">/</span><span class="token operator">*</span>
+输出：
+    <span class="token operator">*</span>
+   <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>
+  <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>
+ <span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span><span class="token operator">*</span>
+</code></pre>
 <h3 id="控制循环结构"><a href="#控制循环结构" class="headerlink" title="控制循环结构"></a>控制循环结构</h3><pre class=" language-java"><code class="language-java">outer<span class="token operator">:</span>     
 <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">10</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
@@ -993,134 +1034,175 @@ continue 将结束标签 outer 标识的循环体的本次循环
 <li><p>静态初始化</p>
 <ul>
 <li><p>由程序员显式分配每个数组元素的初始值，由系统决定数组的长度</p>
-<p><code>`</code>java<br>int[] a;<br>a = new int[]{5 , 6 , 8 , 20};</p>
-<p>Object[] b1;<br>b1 = new String[]{“晚来天欲雪，” , “能饮一杯无。”};</p>
-<p>Object[] b2;<br>b2 = new Object[]{“晚来天欲雪，” , “能饮一杯无。”};</p>
-<p>/<em><br>String 类型是 Object 类型的子类<br>子类的实例是一种特殊的父类实例<br>即字符串是一种特殊的 Object 实例
-</em>/</p>
+<p><code>`</code>java<br>type[] arrayName<br>arrayName = new type[] {element1 , element2 , element3 , element4 ……}</p>
+<p>type[] arrayName = {element1 , element2 , element3 , element4 ……}</p>
 </li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code>  type[] arrayName
-  arrayName = new type[] {element1 , element2 , element3 , element4 ......}
+<pre><code>  int[] a;
+  a = new int[]{5 , 6 , 8 , 20};
+
+  Object[] b1;
+  b1 = new String[]{&quot;晚来天欲雪，&quot; , &quot;能饮一杯无。&quot;};
+
+  Object[] b2;
+  b2 = new Object[]{&quot;晚来天欲雪，&quot; , &quot;能饮一杯无。&quot;};
+
+  /*
+  String 类型是 Object 类型的子类
+  子类的实例是一种特殊的父类实例
+  即字符串是一种特殊的 Object 实例
+  */
 
 
 
   int[] a = {5 , 6 , 7 , 9};
-
-  type[] arrayName = {element1 , element2 , element3 , element4 ......}
   ```
- - new 关键字后面的 type 就是定义数组时所使用的 type 类型，也可以是定义数组时所指定的 type 类型的子类
- - 数组元素值必须和 new 关键字后面的 type 类型相同，或者是其子类的实例
+
+- new 关键字后面的 type 就是定义数组时所使用的 type 类型，也可以是定义数组时所指定的 type 类型的子类
+
+- 数组元素值必须和 new 关键字后面的 type 类型相同，或者是其子类的实例
 </code></pre><ul>
 <li><p>动态初始化</p>
 <ul>
-<li>由程序员指定数组的长度，由系统为数组元素分配初始值</li>
+<li><p>由程序员指定数组的长度，由系统为数组元素分配初始值</p>
+<p><code>`</code>java<br>type[] arrayName<br>arrrayName = new type[length]</p>
+<p>type[] arrayName = new type[length]</p>
+</li>
 </ul>
-<pre class=" language-java"><code class="language-java"><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">//定义和初始化同时完成</span>
+</li>
+</ul>
+<pre><code>  int[] a = new int[5];        //定义和初始化同时完成
 
-Object<span class="token punctuation">[</span><span class="token punctuation">]</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">//定义和初始化同时完成</span>
+  Object[] b = new String[4];    //定义和初始化同时完成
+  ```
 
-type<span class="token punctuation">[</span><span class="token punctuation">]</span> arrayName
-arrrayName <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">type</span><span class="token punctuation">[</span>length<span class="token punctuation">]</span>
+- 需要指定一个 int 类型的 length
+
+- length 指定了数组的长度，也就是可容纳数组元素的个数
+
+- new 关键字后面的 type 就是定义数组时所使用的 type 类型，也可以是定义数组时所指定的 type 类型的子类
+
+- 系统按如下规则分配初始值
+
+  - byte 、short 、int 、long
+    - 0
+  - float 、double
+    - 0.0
+  - char
+    - &#39;\u0000&#39;
+  - boolean
+    - false
+  - 类、接口和数组
+    - null
+</code></pre><ul>
+<li><p>不要同时使用静态初始化和动态初始化</p>
+<ul>
+<li>即不要同时指定数组长度且为每个数组元素分配初始值</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用数组"><a href="#使用数组" class="headerlink" title="使用数组"></a>使用数组</h3><pre class=" language-java"><code class="language-java">Object<span class="token punctuation">[</span><span class="token punctuation">]</span> b1<span class="token punctuation">;</span>
+b1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">"晚来天欲雪，"</span> <span class="token punctuation">,</span> <span class="token string">"能饮一杯无。"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//输出：能饮一杯无</span>
+
+Object<span class="token punctuation">[</span><span class="token punctuation">]</span> b1<span class="token punctuation">;</span>
+b1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">"晚来天欲雪，"</span> <span class="token punctuation">,</span> <span class="token string">"能饮一杯无。"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+b1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"此情无计可消除"</span><span class="token punctuation">;</span>     <span class="token comment" spellcheck="true">//为数组 b1 的第二个元素赋值</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">//输出：此情无计可消除</span>
+
+Object<span class="token punctuation">[</span><span class="token punctuation">]</span> b1<span class="token punctuation">;</span>
+b1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token string">"晚来天欲雪，"</span> <span class="token punctuation">,</span> <span class="token string">"能饮一杯无。"</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b1<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token comment" spellcheck="true">/*
+异常：
+java.lang.ArrayIndexOutOfBoundsException：
+Index 5 out of bounds for length 2
+*/</span>
+
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">;</span>
+a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">5</span> <span class="token punctuation">,</span> <span class="token number">6</span> <span class="token punctuation">,</span> <span class="token number">8</span> <span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> a<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+输出：
+5
+6
+8
+20
+*/</span>
+
+Object<span class="token punctuation">[</span><span class="token punctuation">]</span> b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  
+b<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>       <span class="token operator">=</span> <span class="token string">"被酒莫惊春睡重"</span><span class="token punctuation">;</span>
+b<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>       <span class="token operator">=</span> <span class="token string">"赌书消得泼茶香"</span><span class="token punctuation">;</span>
+b<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>       <span class="token operator">=</span> <span class="token string">"当时只道是寻常"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span> <span class="token punctuation">;</span> i <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>length <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
+输出：
+null
+被酒莫惊春睡重
+赌书消得泼茶香
+当时只道是寻常
+*/</span>
 </code></pre>
 <ul>
-<li>需要指定一个 int 类型的 length</li>
-<li>length 指定了数组的长度，也就是可容纳数组元素的个数</li>
-<li>new 关键字后面的 type 就是定义数组时所使用的 type 类型，也可以是定义数组时所指定的 type 类型的子类</li>
-<li>系统按如下规则分配初始值<ul>
-<li>byte 、short 、int 、long<ul>
-<li>0</li>
+<li>Java 数组的索引从0开始</li>
+<li>最后一个元素的索引为数组长度减1</li>
+<li>每个数组都提供有一个 length 属性</li>
 </ul>
-</li>
-<li>float 、double<ul>
-<li>0.0</li>
-</ul>
-</li>
-<li>char<ul>
-<li>‘\u0000’</li>
-</ul>
-</li>
-<li>boolean<ul>
-<li>false</li>
-</ul>
-</li>
-<li>类、接口和数组<ul>
-<li>null</li>
-</ul>
-</li>
-<li>不要同时使用静态初始化和动态初始化</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>即不要同时指定数组长度和为每个数组元素分配初始值</p>
-</li>
-</ul>
-<h3 id="使用数组"><a href="#使用数组" class="headerlink" title="使用数组"></a>使用数组</h3><p>​<code>`</code>java<br>Object[] b1;<br>b1 = new String[]{“晚来天欲雪，” , “能饮一杯无。”};</p>
-<p>System.out.println(b1[1]);   //输出：能饮一杯无</p>
-<p>Object[] b1;<br>b1 = new String[]{“晚来天欲雪，” , “能饮一杯无。”};<br>b1[1] = “此情无计可消除”;     //为数组 b1 的第二个元素赋值</p>
-<p>System.out.println(b1[1]);   //输出：此情无计可消除</p>
-<p>Object[] b1;<br>b1 = new String[]{“晚来天欲雪，” , “能饮一杯无。”};</p>
-<p>System.out.println(b1[5]);<br>/<em><br>异常：<br>java.lang.ArrayIndexOutOfBoundsException：<br>Index 5 out of bounds for length 2
-</em>/</p>
-<p>int[] a;<br>a = new int[]{5 , 6 , 8 , 20};</p>
-<p>for(int i = 0 ; i &lt; a.length ; i++)<br>{<br>​    System.out.println(a[i]);<br>}<br>/<em><br>输出：<br>5<br>6<br>8<br>20
-</em>/</p>
-<p>Object[] b = new String[4];<br>b[1]       = “被酒莫惊春睡重”;<br>b[2]       = “赌书消得泼茶香”;<br>b[3]       = “当时只道是寻常”;</p>
-<p>for(int i = 0 ; i &lt; b.length ; i++)<br>{<br>​    System.out.println(b[i]);<br>}<br>/<em><br>输出：<br>null<br>被酒莫惊春睡重<br>赌书消得泼茶香<br>当时只道是寻常
-</em>/</p>
-<pre><code>
-- Java 数组的索引从0开始
-- 最后一个元素的索引为数组长度减1
-- 每个数组都提供有一个 length 属性
+<pre class=" language-java"><code class="language-java"><span class="token keyword">for</span><span class="token punctuation">(</span>type variableName <span class="token operator">:</span> arrayName <span class="token operator">|</span> collection<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>variableName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
 
+String<span class="token punctuation">[</span><span class="token punctuation">]</span> poems <span class="token operator">=</span> <span class="token punctuation">{</span>
+                   <span class="token string">"红豆生南国"</span><span class="token punctuation">,</span>
+                   <span class="token string">"春来发几枝"</span><span class="token punctuation">,</span>
+                   <span class="token string">"愿君多采撷"</span><span class="token punctuation">,</span>
+                   <span class="token string">"此物最相思"</span><span class="token punctuation">,</span>
+                 <span class="token punctuation">}</span><span class="token punctuation">;</span>         
 
-​```java
-for(type variableName : arrayName | collection)
-{
-    System.out.println(variableName);
-}
-
-
-String[] poems = {
-                   &quot;红豆生南国&quot;,
-                   &quot;春来发几枝&quot;,
-                   &quot;愿君多采撷&quot;,
-                   &quot;此物最相思&quot;,
-                 };         
-
-for (String poem : poems)           //形参 poem 将自动迭代遍历每个数组元素
-{
-     System.out.println(poem);    
-}
-/*
+<span class="token keyword">for</span> <span class="token punctuation">(</span>String poem <span class="token operator">:</span> poems<span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">//形参 poem 将自动迭代遍历每个数组元素</span>
+<span class="token punctuation">{</span>
+     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>poem<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
 输出：
 红豆生南国
 春来发几枝
 愿君多采撷
 此物最相思
-*/
+*/</span>
 
 
 
-String[] poems = {
-                   &quot;红豆生南国&quot;,
-                   &quot;春来发几枝&quot;,
-                   &quot;愿君多采撷&quot;,
-                   &quot;此物最相思&quot;,
-                 };         
+String<span class="token punctuation">[</span><span class="token punctuation">]</span> poems <span class="token operator">=</span> <span class="token punctuation">{</span>
+                   <span class="token string">"红豆生南国"</span><span class="token punctuation">,</span>
+                   <span class="token string">"春来发几枝"</span><span class="token punctuation">,</span>
+                   <span class="token string">"愿君多采撷"</span><span class="token punctuation">,</span>
+                   <span class="token string">"此物最相思"</span><span class="token punctuation">,</span>
+                 <span class="token punctuation">}</span><span class="token punctuation">;</span>         
 
-for (String poem : poems)           //形参 poem 将自动迭代遍历每个数组元素
-{
-     poem = &quot;红豆生南国&quot;;
-     System.out.println(poem);    
-}
-/*
+<span class="token keyword">for</span> <span class="token punctuation">(</span>String poem <span class="token operator">:</span> poems<span class="token punctuation">)</span>           <span class="token comment" spellcheck="true">//形参 poem 将自动迭代遍历每个数组元素</span>
+<span class="token punctuation">{</span>
+     poem <span class="token operator">=</span> <span class="token string">"红豆生南国"</span><span class="token punctuation">;</span>
+     System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>poem<span class="token punctuation">)</span><span class="token punctuation">;</span>    
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/*
 输出：
 红豆生南国
 红豆生南国
@@ -1135,8 +1217,9 @@ for (String poem : poems)           //形参 poem 将自动迭代遍历每个数
 它只是保存了数组元素的值
 如果希望改变数组元素的值
 则不应该用 foreach 循环
-*/
-</code></pre><ul>
+*/</span>
+</code></pre>
+<ul>
 <li><code>foreach</code></li>
 <li>无需获得数组（或集合）的长度即可遍历数组（或集合）</li>
 <li>无需根据索引来访问数组元素（或集合元素）</li>
@@ -1214,9 +1297,9 @@ System.out.print</div>
                     
                     <div class="card-action article-tags">
                         
-                        <a href="https://achillesprime.github.io/tags/Java/"><span class="chip bg-color">Java</span></a>
-                        
                         <a href="https://achillesprime.github.io/tags/Foundation/"><span class="chip bg-color">Foundation</span></a>
+                        
+                        <a href="https://achillesprime.github.io/tags/Java/"><span class="chip bg-color">Java</span></a>
                         
                     </div>
                     
@@ -1263,9 +1346,9 @@ System.out.print</div>
                     
                     <div class="card-action article-tags">
                         
-                        <a href="https://achillesprime.github.io/tags/Java/"><span class="chip bg-color">Java</span></a>
-                        
                         <a href="https://achillesprime.github.io/tags/Foundation/"><span class="chip bg-color">Foundation</span></a>
+                        
+                        <a href="https://achillesprime.github.io/tags/Java/"><span class="chip bg-color">Java</span></a>
                         
                     </div>
                     
